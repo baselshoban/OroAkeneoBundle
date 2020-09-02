@@ -376,7 +376,6 @@ services:
 
   oro_akeneo.event_listener.attributes_grid_listener:
     class: 'Oro\Bundle\AkeneoBundle\EventListener\AttributesGridListener'
-    decorates: oro_entity_config_pro.listener.attributes_grid_listener
     arguments:
       - '@oro_security.token_accessor'
       - '@oro_entity.doctrine_helper'

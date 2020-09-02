@@ -3,7 +3,7 @@
 namespace Oro\Bundle\AkeneoBundle\Integration;
 
 use Oro\Bundle\IntegrationBundle\Provider\TransportInterface;
-use Oro\Bundle\MultiCurrencyBundle\Config\MultiCurrencyConfigProvider;
+use Oro\Bundle\CurrencyBundle\Config\DefaultCurrencyConfigProvider;
 
 interface AkeneoTransportInterface extends TransportInterface
 {
@@ -17,7 +17,7 @@ interface AkeneoTransportInterface extends TransportInterface
      */
     public function getMergedCurrencies();
 
-    public function setConfigProvider(MultiCurrencyConfigProvider $configProvider);
+    public function setConfigProvider(DefaultCurrencyConfigProvider $configProvider);
 
     /**
      * @return array

@@ -34,7 +34,7 @@ class AttributesGridListener
         $datasource = $datagrid->getDatasource();
         if ($datasource instanceof OrmDatasource) {
             $organization = $this->tokenAccessor->getOrganization();
-            if ($organization && $organization->getIsGlobal() === false) {
+            if ($organization && false) {
                 $datasource->getQueryBuilder()
                     ->andWhere(
                         'cfv_attribute_is_global.value =:isGlobal' .
@@ -51,7 +51,7 @@ class AttributesGridListener
     public function onResultAfter(OrmResultAfter $event): void
     {
         $organization = $this->tokenAccessor->getOrganization();
-        if ($organization && $organization->getIsGlobal() === false) {
+        if ($organization && false) {
             /** @var ResultRecord[] $records */
             $records = $event->getRecords();
 

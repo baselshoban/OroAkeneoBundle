@@ -111,8 +111,11 @@ class ProductDataConverter extends BaseProductDataConverter implements ContextAw
 
     private function setStatus(array &$importedRecord)
     {
-        $importedRecord['status'] = isset($importedRecord['enabled']) ?
-            Product::STATUS_ENABLED : Product::STATUS_DISABLED;
+        if(!isset($importedRecord['enabled'])) {
+            $importedRecord['status'] = Product::STATUS_DISABLED;
+
+            return;
+        }
 
         if (!empty($importedRecord['family_variant'])) {
             $importedRecord['status'] = Product::STATUS_DISABLED;
@@ -120,11 +123,8 @@ class ProductDataConverter extends BaseProductDataConverter implements ContextAw
             return;
         }
 
-        if (!empty($importedRecord['parent'])) {
-            $importedRecord['status'] = Product::STATUS_DISABLED;
-
-            return;
-        }
+        $importedRecord['status'] = $importedRecord['enabled']
+            ? Product::STATUS_ENABLED : Product::STATUS_DISABLED;
     }
 
     /**

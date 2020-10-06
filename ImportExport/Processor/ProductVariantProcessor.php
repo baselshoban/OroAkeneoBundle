@@ -101,8 +101,6 @@ class ProductVariantProcessor implements ProcessorInterface, StepExecutionAwareI
                 continue;
             }
 
-            $variantProduct->setStatus(Product::STATUS_ENABLED);
-
             unset($variantSkusUppercase[$variantProduct->getSkuUppercase()]);
         }
 
@@ -116,8 +114,6 @@ class ProductVariantProcessor implements ProcessorInterface, StepExecutionAwareI
 
                 $variantProduct->addParentVariantLink($variantLink);
                 $parentProduct->addVariantLink($variantLink);
-
-                $variantProduct->setStatus(Product::STATUS_ENABLED);
 
                 $variantLinks[$variantProduct->getSku()] = $variantLink;
             }

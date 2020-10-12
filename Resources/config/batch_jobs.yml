@@ -91,7 +91,7 @@ connector:
           services:
             reader: oro_akeneo.importexport.reader.price
             processor: oro_akeneo.importexport.processor.import.product_price
-            writer: oro_pricing.importexport.writer.product_price
+            writer: oro_akeneo.importexport.writer.product_price
         import_variants:
           title: import
           class: Oro\Bundle\BatchBundle\Step\ItemStep

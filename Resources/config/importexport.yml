@@ -382,3 +382,9 @@ services:
     tags:
       - { name: kernel.event_listener, event: oro_datagrid.datagrid.build.after.attributes-grid, method: onBuildAfter, priority: -255 }
       - { name: kernel.event_listener, event: oro_datagrid.orm_datasource.result.after.attributes-grid, method: onResultAfter }
+
+  oro_akeneo.importexport.writer.product_price:
+    class:  'Oro\Bundle\AkeneoBundle\ImportExport\Writer\ProductPriceWriter'
+    parent: oro_pricing.importexport.writer.product_price
+    calls:
+      - [setPriceBuilder, ["@oro_pricing.builder.combined_price_list_builder_facade"]]
